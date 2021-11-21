@@ -1,19 +1,33 @@
-import logo from '../../logo.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss';
+import CartWidget from '../cartwidget/cartWidget';
 
 const NavBar = () => {
     return (
         <div className="navContainer">
             <div>
-                <img src={logo} className="App-logo" alt="logo" />
             </div>
             <div>
-                <a href="/#">Inicio</a>
-                <a href="/#">Nosotros</a>
-                <a href="/#">Contacto</a>
+                <div>
+                    <a href="/#">Tienda</a>
+                </div>
+                <div>
+                    <FontAwesomeIcon icon={faPaw}/>
+                </div>
+                <div>
+                    <a href="/#">Log-in</a>
+                </div>
             </div>
             <div>
-                <a href="/#">Login</a>
+                <div>
+                </div>
+                <div>
+                    <CartWidget/>
+                </div>
+                <div>
+                    <p>0</p>
+                </div>
             </div>
         </div>
     );
