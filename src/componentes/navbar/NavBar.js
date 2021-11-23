@@ -16,7 +16,7 @@ const NavBar = () => {
                     <FontAwesomeIcon icon={faPaw}/>
                 </div>
                 <div>
-                    <a href="/#">Log-in</a>
+                    <a href="/#">Login</a>
                 </div>
             </div>
             <div>
