@@ -1,10 +1,12 @@
 import './styles.scss';
+import React from 'react';
+import '../itemcount/ItemCount';
+import ItemCount from '../itemcount/ItemCount';
 
 const ItemListContainer = () => {
-    const title = 'Coming soon...';
     return (
         <div className="itemListContainer">
-            <p>{title}</p>
+            <ItemCount stock="15" initial="1"/>
         </div>
     );
 }

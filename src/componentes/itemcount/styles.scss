@@ -1,0 +1,32 @@
+.countContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    >div:nth-child(1){
+        display: flex;
+        justify-content: center;
+        width: 50px;
+        >div:nth-child(1){
+            >a{
+                padding-right: 5px;
+                >svg{
+                    color: #000000;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+    >div:nth-child(2){
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 50px;
+        >div:nth-child(1){
+            padding: 5px 0px 5px 0px;
+        }
+        >div >button{
+            width: 50px;
+        }
+    }
+}
