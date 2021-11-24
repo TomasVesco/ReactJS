@@ -1,6 +1,10 @@
 @import '../listas/listas.scss';
 
 .navContainer{
+    position: fixed;
+    top: 0;
+    margin: auto;
+    z-index: 1;
     background-color: nth($colores, 2);
     height: 80px;
     width: 100%;
