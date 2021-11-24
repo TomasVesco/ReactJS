@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TomasVesco/ReactJS/static/css/main.742801e4.chunk.css",
+    "main.js": "/TomasVesco/ReactJS/static/js/main.67fa5afe.chunk.js",
+    "main.js.map": "/TomasVesco/ReactJS/static/js/main.67fa5afe.chunk.js.map",
+    "runtime-main.js": "/TomasVesco/ReactJS/static/js/runtime-main.b3615609.js",
+    "runtime-main.js.map": "/TomasVesco/ReactJS/static/js/runtime-main.b3615609.js.map",
+    "static/js/2.91153381.chunk.js": "/TomasVesco/ReactJS/static/js/2.91153381.chunk.js",
+    "static/js/2.91153381.chunk.js.map": "/TomasVesco/ReactJS/static/js/2.91153381.chunk.js.map",
+    "static/js/3.43d1b0d3.chunk.js": "/TomasVesco/ReactJS/static/js/3.43d1b0d3.chunk.js",
+    "static/js/3.43d1b0d3.chunk.js.map": "/TomasVesco/ReactJS/static/js/3.43d1b0d3.chunk.js.map",
+    "index.html": "/TomasVesco/ReactJS/index.html",
+    "static/css/main.742801e4.chunk.css.map": "/TomasVesco/ReactJS/static/css/main.742801e4.chunk.css.map",
+    "static/js/2.91153381.chunk.js.LICENSE.txt": "/TomasVesco/ReactJS/static/js/2.91153381.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b3615609.js",
+    "static/js/2.91153381.chunk.js",
+    "static/css/main.742801e4.chunk.css",
+    "static/js/main.67fa5afe.chunk.js"
+  ]
+}
