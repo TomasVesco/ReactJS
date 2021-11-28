@@ -1,9 +1,25 @@
 .countContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 5px 5px 0px 0px;
+    span{
+        font-size: 18px;
+        font-weight: 500;
+    }
     >div:nth-child(1){
         display: flex;
-        justify-content: center;
+        >div:nth-child(1), div:nth-child(3){
+            width: 20px;
+            height: 20px;
+            >button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                font-size: 18px;
+            }
+        }
+        >div:nth-child(2){
+            padding: 0px 5px 0px 5px;
+        }
     }
 }
