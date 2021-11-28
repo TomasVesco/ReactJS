@@ -1,7 +1,5 @@
 import './styles.scss';
 import React, {useState} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const ItemCount = ({stock, initial}) => {
 
@@ -23,16 +21,13 @@ const ItemCount = ({stock, initial}) => {
         <div className="countContainer">
             <div>
                 <div>
-                    <a href="#/"><FontAwesomeIcon icon={faShoppingCart}/></a>
+                    <button onClick={removeFromCart}>-</button> 
+                </div>
+                <div>
                     <span>{count}</span>
                 </div>
-            </div>
-            <div>
                 <div>
                     <button onClick={addToCart}>+</button>
-                </div>
-                <div>
-                    <button onClick={removeFromCart}>-</button> 
                 </div>
             </div>
         </div>

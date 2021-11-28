@@ -1,12 +1,27 @@
 import './styles.scss';
-import React from 'react';
 import '../itemcount/ItemCount';
-import ItemCount from '../itemcount/ItemCount';
+import ItemList from '../itemList/itemList';
+import { useEffect, useState } from 'react';
+import { getProducts } from '../../products';
+
 
 const ItemListContainer = () => {
+
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        const list = getProducts();
+        list.then(list => {
+            setProductos(list);
+        });
+        return (() => {
+            setProductos([]);
+        });
+    }, []);
+
     return (
         <div className="itemListContainer">
-            <ItemCount stock={15} initial={1}/>
+            <ItemList className="itemListContainer" productos={productos}/>
         </div>
     );
 }
