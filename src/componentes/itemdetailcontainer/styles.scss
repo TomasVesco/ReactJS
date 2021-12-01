@@ -1,0 +1,11 @@
+.itemDetailContainer{
+    padding-top: 110px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    >p{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}

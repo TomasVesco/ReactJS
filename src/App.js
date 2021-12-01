@@ -1,5 +1,6 @@
 import NavBar from './componentes/navbar/NavBar';
-import ItemListContainer from './componentes/itemlistcontainer/itemListContainer';
+// import ItemListContainer from './componentes/itemlistcontainer/itemListContainer';
+import ItemDetailContainer from './componentes/itemdetailcontainer/itemdetailcontainer';
 
 function App() {
   return (
@@ -9,9 +10,13 @@ function App() {
       </header>
       <section>
         <div>
-          <ItemListContainer />
+          {/* <ItemListContainer /> */}
+          <ItemDetailContainer/>
         </div>
       </section>
+      {/* <section>
+          <Fetch />
+      </section> */}
     </div>
   );
 }

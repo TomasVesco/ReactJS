@@ -1,29 +1,29 @@
-import './styles.scss';
-import '../itemcount/ItemCount';
-import ItemList from '../itemList/itemList';
-import { useEffect, useState } from 'react';
-import { getProducts } from '../../products';
+// import './styles.scss';
+// import '../itemcount/ItemCount';
+// import ItemList from '../itemList/itemList';
+// import { useEffect, useState } from 'react';
+// import { getProducts } from '../../products';
 
 
-const ItemListContainer = () => {
+// const ItemListContainer = () => {
 
-    const [productos, setProductos] = useState([]);
+//     const [productos, setProductos] = useState([]); //Voy a utilizar esto mismo para el ItemDetailContainer
 
-    useEffect(() => {
-        const list = getProducts();
-        list.then(list => {
-            setProductos(list);
-        });
-        return (() => {
-            setProductos([]);
-        });
-    }, []);
+//     useEffect(() => {
+//         const list = getProducts();
+//         list.then(list => {
+//             setProductos(list); 
+//         });
+//         return (() => {
+//             setProductos([]);
+//         });
+//     }, []);
 
-    return (
-        <div className="itemListContainer">
-            <ItemList className="itemListContainer" productos={productos}/>
-        </div>
-    );
-}
+//     return (
+//         <div className="itemListContainer">
+//             <ItemList className="itemListContainer" productos={productos}/>
+//         </div>
+//     );
+// }
 
-export default ItemListContainer;
+// export default ItemListContainer;

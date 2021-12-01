@@ -51,3 +51,11 @@ export const getProducts = () => {
         }, 3000);
     });
 };
+
+export const getItem = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(productos[0]);
+        }, 2000);
+    });
+};
