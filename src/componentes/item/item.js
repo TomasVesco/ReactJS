@@ -20,7 +20,7 @@ const Item = ({productos}) =>
     //         </div>
     //     </div>
     // );
-    return(
+    return(                                      //Éste utilizaré para el ItemDetailContainer
         <div className="card">
             <div>
                 <img src={productos.imagen} alt=""/>
@@ -32,7 +32,7 @@ const Item = ({productos}) =>
                 <p>Precio: ${productos.precio}</p>
             </div>
             <div>
-                <p>¡Fantástica para tu perro! comodidad y elegancia.</p>
+                <p>{productos.descripcion}</p>
             </div>
         </div>
     );

@@ -4,7 +4,8 @@ const productos =
         imagen: "https://static.wixstatic.com/media/c46aee_6f2538a860304191a03da6dc2e9c5c38~mv2.jpg/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01/c46aee_6f2538a860304191a03da6dc2e9c5c38~mv2.webp",
         nombre: "Cucha para perro",
         precio: 349,
-        id: 1
+        id: 1,
+        descripcion: "¡Fantástica para tu perro! comodidad y elegancia."
     },
     {
         imagen: "https://static.wixstatic.com/media/c46aee_f051c30e02f5462f8af0cde60e41719a~mv2.jpg/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01/c46aee_f051c30e02f5462f8af0cde60e41719a~mv2.webp",

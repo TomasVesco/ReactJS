@@ -1,13 +1,11 @@
 // import './styles.scss';
-// import '../itemcount/ItemCount';
 // import ItemList from '../itemList/itemList';
 // import { useEffect, useState } from 'react';
 // import { getProducts } from '../../products';
 
-
 // const ItemListContainer = () => {
 
-//     const [productos, setProductos] = useState([]); //Voy a utilizar esto mismo para el ItemDetailContainer
+//     const [productos, setProductos] = useState([]); 
 
 //     useEffect(() => {
 //         const list = getProducts();
@@ -21,7 +19,7 @@
 
 //     return (
 //         <div className="itemListContainer">
-//             <ItemList className="itemListContainer" productos={productos}/>
+//             <ItemList productos={productos}/>
 //         </div>
 //     );
 // }
