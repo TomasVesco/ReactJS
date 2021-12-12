@@ -1,27 +1,49 @@
-// import './styles.scss';
-// import ItemList from '../itemList/itemList';
-// import { useEffect, useState } from 'react';
-// import { getProducts } from '../../products';
+import './styles.scss';
+import ItemList from '../itemList/itemList';
+import { useEffect, useState } from 'react';
+import { getItemByCategory } from '../../products';
+import { getProducts } from '../../products';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-// const ItemListContainer = () => {
+const ItemListContainer = () => {
 
-//     const [productos, setProductos] = useState([]); 
+    const [productos, setProductos] = useState([]); 
+    const [cargando, setCargando] = useState(false);
 
-//     useEffect(() => {
-//         const list = getProducts();
-//         list.then(list => {
-//             setProductos(list); 
-//         });
-//         return (() => {
-//             setProductos([]);
-//         });
-//     }, []);
+    const { categoryId } = useParams();
 
-//     return (
-//         <div className="itemListContainer">
-//             <ItemList productos={productos}/>
-//         </div>
-//     );
-// }
+    useEffect(() => {
 
-// export default ItemListContainer;
+        setCargando(true);
+
+        ( async () => {
+            if(categoryId !== undefined){
+                const categoria = await getItemByCategory(categoryId);
+                setProductos(categoria);
+                setCargando(false);
+            } else {
+                const categoria = await getProducts();
+                setProductos(categoria);
+                setCargando(false);
+            }
+        })();
+    }, [categoryId]);
+
+    return (
+        <>
+            {!cargando&&<div className="itemListContainer">
+                <div>
+                    <div>
+                        <Link to={'/category/cucha'}>Cucha</Link>
+                        <Link to={'/category/comedero'}>Comedero</Link>
+                        <Link to={'/category/herramienta'}>Herramienta</Link>
+                    </div>
+                </div>
+                <ItemList productos={productos} />
+            </div>}
+        </>
+    );
+}
+
+export default ItemListContainer;

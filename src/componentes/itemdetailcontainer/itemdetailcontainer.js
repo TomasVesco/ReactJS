@@ -1,24 +1,26 @@
 import './styles.scss';
 import ItemDetail from "../itemdetail/itemdetail";
 import { useEffect, useState } from "react";
-import { getItem } from "../../products";
+import { getProductById } from '../../products';
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(false);
 
+    const { id } = useParams();
+
     useEffect(() => {
-        const product = getItem();
-        setCargando(true)
-        product.then(product => {
+        setCargando(true);
+        getProductById(id).then(product => {
             setProductos(product);
             setCargando(false);
         });
         return(() => {
             setProductos([]);
         });
-    }, []);
+    }, [id]);
 
     return(
         <div className="itemDetailContainer">

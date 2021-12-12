@@ -1,11 +1,12 @@
 .countContainer{
-    padding: 5px 5px 0px 0px;
+    padding: 10px 5px 0px 0px;
     span{
         font-size: 18px;
         font-weight: 500;
     }
     >div:nth-child(1){
         display: flex;
+        justify-content: center;
         >div:nth-child(1), div:nth-child(3){
             width: 20px;
             height: 20px;

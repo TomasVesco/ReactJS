@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import './styles.scss';
 import CartWidget from '../cartwidget/cartWidget';
+import { Link } from 'react-router-dom';
+import './styles.scss';
 
 const NavBar = () => {
     return (
@@ -10,20 +11,20 @@ const NavBar = () => {
             </div>
             <div>
                 <div>
-                    <a href="/#">Tienda</a>
+                    <Link to={'/'}>Tienda</Link>
                 </div>
                 <div>
-                    <FontAwesomeIcon icon={faPaw}/>
+                    <Link to={'/'}><FontAwesomeIcon icon={faPaw}/></Link>
                 </div>
                 <div>
-                    <a href="/#">Login</a>
+                    <Link to={'/login'}>Login</Link>
                 </div>
             </div>
             <div>
                 <div>
                 </div>
                 <div>
-                    <CartWidget/>
+                    <Link to={'/checkout'}><CartWidget/></Link>
                 </div>
                 <div>
                     <p>0</p>

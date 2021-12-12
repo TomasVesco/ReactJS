@@ -1,9 +1,9 @@
-import Item from "../item/item";
+import ItemD from "../itemD/itemD";
 
 const ItemDetail = ({productos}) => {
     return(
         <div>
-            <Item key={productos.id} productos={productos}/>
+            <ItemD key={productos.id} productos={productos}/>
         </div>
     );
 }
