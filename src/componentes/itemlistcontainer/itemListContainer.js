@@ -5,6 +5,8 @@ import { getItemByCategory } from '../../products';
 import { getProducts } from '../../products';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 const ItemListContainer = () => {
 
@@ -32,7 +34,8 @@ const ItemListContainer = () => {
 
     return (
         <>
-            {!cargando&&<div className="itemListContainer">
+            {cargando ? <div className='preloaderL'><div><FontAwesomeIcon icon={faPaw}/></div></div>:
+            <div className="itemListContainer">
                 <div>
                     <div>
                         <Link to={'/category/cucha'}>Cucha</Link>

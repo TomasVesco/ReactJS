@@ -3,6 +3,8 @@ import ItemDetail from "../itemdetail/itemdetail";
 import { useEffect, useState } from "react";
 import { getProductById } from '../../products';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 const ItemDetailContainer = () => {
 
@@ -24,7 +26,7 @@ const ItemDetailContainer = () => {
 
     return(
         <div className="itemDetailContainer">
-            {!cargando&&<ItemDetail productos={productos}/>}
+            {cargando ? <div className='preloader'><div><FontAwesomeIcon icon={faPaw}/></div></div>:<ItemDetail productos={productos}/>}
         </div>
     );
 }
