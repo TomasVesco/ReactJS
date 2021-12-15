@@ -5,7 +5,11 @@ import './styles.scss';
 const CartWidget = () => {
     return (
         <div className="cart">  
-            <a href="#/"><FontAwesomeIcon icon={faShoppingCart}/></a>
+            <a href="#/"><FontAwesomeIcon icon={faShoppingCart}/>
+                <p>
+                    0
+                </p>
+            </a>
         </div>
     );
 }

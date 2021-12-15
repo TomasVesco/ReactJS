@@ -27,7 +27,6 @@ const NavBar = () => {
                     <Link to={'/checkout'}><CartWidget/></Link>
                 </div>
                 <div>
-                    <p>0</p>
                 </div>
             </div>
         </div>

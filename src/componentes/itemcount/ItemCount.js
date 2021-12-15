@@ -1,7 +1,7 @@
 import './styles.scss';
 import React, {useState} from 'react';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onConfirm}) => {
 
     let [count, setCount] = useState(initial);
 
@@ -21,13 +21,18 @@ const ItemCount = ({stock, initial}) => {
         <div className="countContainer">
             <div>
                 <div>
-                    <button onClick={removeFromCart}>-</button> 
+                    <div>
+                        <button onClick={removeFromCart}>-</button> 
+                    </div>
+                    <div>
+                        <span>{count}</span>
+                    </div>
+                    <div>
+                        <button onClick={addToCart}>+</button>
+                    </div>
                 </div>
                 <div>
-                    <span>{count}</span>
-                </div>
-                <div>
-                    <button onClick={addToCart}>+</button>
+                    <button onClick={ () => onConfirm(count)}>Agregar al carrito</button>
                 </div>
             </div>
         </div>

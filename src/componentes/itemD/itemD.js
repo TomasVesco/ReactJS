@@ -15,7 +15,6 @@ const ItemD = ({productos}) =>
             </div>
             <div>
                 <p>{productos.descripcion}</p>
-                <a href="#/">Agregar al carrito</a>
             </div>
         </div>
     );

@@ -17,7 +17,6 @@ const ItemL = ({ productos }) => {
             <div>
                 <Link to={`/item/${productos.id}`}>Detalle</Link>
                 <ItemCount stock={15} initial={1}/>
-                <Link>Agregar al carrito</Link>
             </div>
         </div>
     );
