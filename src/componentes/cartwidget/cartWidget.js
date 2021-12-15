@@ -4,12 +4,13 @@ import './styles.scss';
 
 const CartWidget = () => {
     return (
-        <div className="cart">  
-            <a href="#/"><FontAwesomeIcon icon={faShoppingCart}/>
+        <div className="cartContainer">  
+            <div className='cart'>
+                <FontAwesomeIcon icon={faShoppingCart}/>
                 <p>
                     0
                 </p>
-            </a>
+            </div>
         </div>
     );
 }

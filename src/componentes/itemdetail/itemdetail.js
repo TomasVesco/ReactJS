@@ -1,7 +1,6 @@
 import ItemD from "../itemD/itemD";
 import ItemCount from '../itemcount/ItemCount';
 import './styles.scss';
-import { useState } from "react";
 
 const Nothing = () => {
     return(
@@ -11,18 +10,12 @@ const Nothing = () => {
 
 const ItemDetail = ({ productos }) => {
 
-    const [turnCount, setTurnCount] = useState('on');
-    
+    const turnCount = 'on';
+
     const Count = turnCount === 'on' ? ItemCount : Nothing;
 
     const onAdd = (count) => {
         console.log(`${count} items agregados.`);
-        console.log('Desmontando ItemCount');
-        setTurnCount('off');
-        setTimeout(() => {
-            console.log('Montando ItemCount');
-            setTurnCount('on');
-        }, 1000);
     }
 
     return(

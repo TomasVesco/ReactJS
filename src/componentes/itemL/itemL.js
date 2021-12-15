@@ -3,6 +3,11 @@ import ItemCount from '../itemcount/ItemCount';
 import { Link } from 'react-router-dom';
 
 const ItemL = ({ productos }) => {
+
+    const onAdd = (count) => {
+        console.log(`${count} items agregados.`);
+    }
+
     return (                                         
         <div className="cardL">
             <div>
@@ -16,7 +21,7 @@ const ItemL = ({ productos }) => {
             </div>
             <div>
                 <Link to={`/item/${productos.id}`}>Detalle</Link>
-                <ItemCount stock={15} initial={1}/>
+                <ItemCount stock={15} initial={1} onConfirm={onAdd}/>
             </div>
         </div>
     );
