@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getItemByCategory } from '../../products';
 import { getProducts } from '../../products';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
