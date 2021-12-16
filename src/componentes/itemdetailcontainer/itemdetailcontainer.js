@@ -9,12 +9,11 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 const ItemDetailContainer = () => {
 
     const [productos, setProductos] = useState([]);
-    const [cargando, setCargando] = useState(false);
+    const [cargando, setCargando] = useState(true);
 
     const { id } = useParams();
 
     useEffect(() => {
-        setCargando(true);
         getProductById(id).then(product => {
             setProductos(product);
             setCargando(false);
