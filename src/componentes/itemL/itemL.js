@@ -1,11 +1,17 @@
 import './styles.scss';
+
 import ItemCount from '../itemcount/ItemCount';
 import { Link } from 'react-router-dom';
 
+import { useContext } from "react";
+import CartContext from '../../context/cartContext';
+
 const ItemL = ({ productos }) => {
 
+    const { setNotification } = useContext(CartContext);
+
     const onAdd = (count) => {
-        console.log(`${count} items agregados.`);
+        setNotification('success',`${count} items agregados.`);
     }
 
     return (                                         
@@ -21,7 +27,7 @@ const ItemL = ({ productos }) => {
             </div>
             <div>
                 <Link to={`/item/${productos.id}`}>Detalle</Link>
-                <ItemCount stock={15} initial={1} onConfirm={onAdd}/>
+                <ItemCount stock={productos.stock} initial={1} onConfirm={onAdd}/>
             </div>
         </div>
     );

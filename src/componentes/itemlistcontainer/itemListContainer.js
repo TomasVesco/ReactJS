@@ -17,6 +17,8 @@ const ItemListContainer = () => {
 
     useEffect(() => {
 
+        setCargando(true);
+
         ( async () => {
             if(categoryId !== undefined){
                 const categoria = await getItemByCategory(categoryId);

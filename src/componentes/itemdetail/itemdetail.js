@@ -2,26 +2,21 @@ import ItemD from "../itemD/itemD";
 import ItemCount from '../itemcount/ItemCount';
 import './styles.scss';
 
-const Nothing = () => {
-    return(
-        <div></div>
-    )
-}
+import { useContext } from "react";
+import CartContext from '../../context/cartContext';
 
 const ItemDetail = ({ productos }) => {
-
-    const turnCount = 'on';
-
-    const Count = turnCount === 'on' ? ItemCount : Nothing;
+    
+    const { setNotification } = useContext(CartContext);
 
     const onAdd = (count) => {
-        console.log(`${count} items agregados.`);
+        setNotification('success',`${count} items agregados.`);
     }
 
     return(
         <div className="cardContainer">
             <ItemD key={productos.id} productos={productos}/>
-            <Count stock={15} initial={1} onConfirm={onAdd}/>
+            <ItemCount stock={productos.stock} initial={1} onConfirm={onAdd}/>
         </div>
     );
 }
