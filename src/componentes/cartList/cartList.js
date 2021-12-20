@@ -1,12 +1,8 @@
 import './styles.scss';
 
-import { useContext } from "react";
-import CartContext from "../../context/cartContext";
-
-const CartList = () => {
+const CartList = ({ productos }) => {
     
-    const { productoAdd } = useContext(CartContext); 
-    const { imagen, nombre, precio, id, count } = productoAdd;
+    const { imagen, nombre, precio, id, count } = productos;
 
     return(
         <div className='cardCart'>

@@ -13,7 +13,14 @@ const ItemL = ({ productos }) => {
     const onAdd = (count) => {
         const { imagen, nombre, precio, id} = productos;
         //Crear funcion de addItem en cartContext y utilizarla aca...
-        setProductoAgregado(imagen, nombre, precio, id, count);
+        const item = {
+            imagen,
+            nombre,
+            precio,
+            id,
+            count
+        }
+        setProductoAgregado( item, count );
     }
 
     return (                                         

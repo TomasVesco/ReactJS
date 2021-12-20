@@ -1,22 +1,17 @@
 import './styles.scss';
-// import CartList from '../cartList/cartList';
 
+import CartList from '../cartList/cartList';
 import { useContext } from "react";
 import CartContext from '../../context/cartContext';
-// import { useEffect, useState } from 'react';
 
 const Cart = () => {
 
     const { productoAdd } = useContext(CartContext);
-    const { imagen, nombre, precio, id, count } = productoAdd;
+    const { item } = productoAdd;
 
     return(
         <div className='cartContainer'>
-            <img src={imagen} alt=""/>
-            <p>{nombre}</p>
-            <p>{precio}</p>
-            <p>{id}</p>
-            <p>{count}</p>
+            {item.map((productos, index) => <CartList key={`${item.id}${index}`} productos={productos} />)}
         </div>
     )
 }

@@ -16,7 +16,8 @@ const ItemDetail = ({ productos }) => {
             imagen,
             nombre,
             precio,
-            id
+            id,
+            count
         }
         setProductoAgregado( item, count );
     }

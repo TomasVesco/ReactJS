@@ -5,18 +5,22 @@ const Context = React.createContext([]);
 export const CartContextProvider = ({children}) => {
 
     const [ item, setItem ] = useState([]);
-    const [ count, setCount] = useState(0);
 
-    const setProductoAgregado = ( item, count ) => {
-        setItem(item);
-        setCount(count);
+    const setProductoAgregado = ( itemToAdd ) => {
+        if(item.some(items => items.id === itemToAdd.id)){
+            const index = item.findIndex(elemento => elemento.id === itemToAdd.id);
+            const temItem = [...item];
+            temItem[index].count += 1;
+            setItem(temItem);
+        }else{
+            setItem((state) => [...state, itemToAdd]);
+        }
     }
 
     return(
         <Context.Provider value={{
             productoAdd: {
-                item,
-                count
+                item
             },
             setProductoAgregado
         }}>
