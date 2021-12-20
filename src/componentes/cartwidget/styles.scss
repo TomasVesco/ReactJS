@@ -1,7 +1,7 @@
 .cartWidgetContainer{
     width: 100%;
     display: flex;
-    >.cart{
+    >.cartWidget{
         width: 100%;
         display: flex;
         justify-content: flex-end;
@@ -13,6 +13,7 @@
         }
         >p{
             padding-top: 5px;
+            padding-bottom: 4px;
             font-size: 16px;
             color: #ffffff;
         }

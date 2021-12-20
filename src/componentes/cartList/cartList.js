@@ -1,17 +1,15 @@
 import './styles.scss';
-// import CartList from '../cartList/cartList';
 
 import { useContext } from "react";
-import CartContext from '../../context/cartContext';
-// import { useEffect, useState } from 'react';
+import CartContext from "../../context/cartContext";
 
-const Cart = () => {
-
-    const { productoAdd } = useContext(CartContext);
+const CartList = () => {
+    
+    const { productoAdd } = useContext(CartContext); 
     const { imagen, nombre, precio, id, count } = productoAdd;
 
     return(
-        <div className='cartContainer'>
+        <div className='cardCart'>
             <img src={imagen} alt=""/>
             <p>{nombre}</p>
             <p>{precio}</p>
@@ -21,4 +19,4 @@ const Cart = () => {
     )
 }
 
-export default Cart;
+export default CartList;

@@ -7,10 +7,12 @@ import CartContext from '../../context/cartContext';
 
 const ItemDetail = ({ productos }) => {
     
-    const { setNotification } = useContext(CartContext);
+    const { setProductoAgregado } = useContext(CartContext);
 
     const onAdd = (count) => {
-        setNotification('success',`${count} items agregados.`);
+        const { imagen, nombre, precio, id} = productos;
+        //Crear funcion de addItem en cartContext y utilizarla aca...
+        setProductoAgregado(imagen, nombre, precio, id, count);
     }
 
     return(

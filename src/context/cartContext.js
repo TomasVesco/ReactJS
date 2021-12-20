@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
 
-const Context = React.createContext();
+const Context = React.createContext([]);
 
 export const CartContextProvider = ({children}) => {
 
-    const [message, setMessage] = useState('');
-    const [severity, setSeverity] = useState('');
+    const [ imagen, setImagen ] = useState('');
+    const [ nombre, setNombre ] = useState('');
+    const [ precio, setPrecio ] = useState(0);
+    const [ id, setId ] = useState(0);
+    const [ count, setCount ] = useState(0);
 
-    const setNotification = (severity, message) => {
-        setSeverity(severity);
-        setMessage(message);
+    const setProductoAgregado = (imagen, nombre, precio, id, count) => {
+        setImagen(imagen);
+        setNombre(nombre);
+        setPrecio(precio);
+        setId(id);
+        setCount(count);
     }
 
     return(
         <Context.Provider value={{
-            notification: {
-                message,
-                severity
+            productoAdd: {
+                imagen,
+                nombre,
+                precio,
+                id,
+                count
             },
-            setNotification
+            setProductoAgregado
         }}>
             {children}
         </Context.Provider>

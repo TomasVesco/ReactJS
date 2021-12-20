@@ -5,7 +5,7 @@ import './styles.scss';
 const CartWidget = () => {
     return (
         <div className="cartWidgetContainer">  
-            <div className='cart'>
+            <div className='cartWidget'>
                 <FontAwesomeIcon icon={faShoppingCart}/>
                 <p>
                     0

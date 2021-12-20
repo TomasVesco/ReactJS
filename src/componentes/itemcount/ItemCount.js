@@ -32,7 +32,7 @@ const ItemCount = ({stock, initial, onConfirm}) => {
                     </div>
                 </div>
                 <div>
-                    <button onClick={ () => onConfirm(count)}>Agregar al carrito</button>
+                    <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
                 </div>
             </div>
         </div>
