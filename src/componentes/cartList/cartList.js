@@ -8,9 +8,9 @@ const CartList = ({ productos }) => {
         <div className='cardCart'>
             <img src={imagen} alt=""/>
             <p>{nombre}</p>
-            <p>{precio}</p>
+            <p>Precio: {precio}</p>
             <p>{id}</p>
-            <p>{count}</p>
+            <p>Cantidad: {count}</p>
         </div>
     )
 }
