@@ -17,12 +17,38 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
+    const totalCount = () => {
+        let count = 0;
+        item.forEach(prod => {
+            count += prod.count;
+        });
+        return count;
+    }
+
+    const totalPrice = () => {
+        let precio = 0;
+        item.forEach(prod => {
+            precio += prod.precio * prod.count;
+        });
+        return precio;
+    }
+
+    const eliminarProd = ( nombre ) => {
+        const index = item.findIndex(elemento => elemento.nombre === nombre);
+        const temItem = [...item];
+        temItem.splice(index, 1);
+        setItem(temItem);
+    }
+
     return(
         <Context.Provider value={{
             productoAdd: {
-                item
+                item,
             },
-            setProductoAgregado
+            setProductoAgregado,
+            totalCount,
+            totalPrice,
+            eliminarProd
         }}>
             {children}
         </Context.Provider>

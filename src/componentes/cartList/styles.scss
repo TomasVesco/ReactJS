@@ -1,0 +1,18 @@
+.cardCart{
+    display: flex;
+    justify-content: center;
+    >div:nth-child(1){
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .cardCartImg{
+        >div:nth-child(1){
+            display: flex;
+            align-items: center;
+            >img{
+                width: 200px;
+            }
+        }
+    }
+}

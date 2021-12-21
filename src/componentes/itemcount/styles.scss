@@ -1,5 +1,5 @@
 .countContainer{
-    padding: 5px 5px 0px 0px;
+    padding: 5px 5px 5px 0px;
     span{
         font-size: 18px;
         font-weight: 500;
@@ -52,4 +52,14 @@
             }
         }
     }
+}
+
+.finCompra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
 }
