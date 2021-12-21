@@ -1,10 +1,11 @@
 import './styles.scss';
 import ItemDetail from "../itemdetail/itemdetail";
 import { useEffect, useState } from "react";
-import { getProductById } from '../../products';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebase';
 
 const ItemDetailContainer = () => {
 
@@ -14,12 +15,14 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        getProductById(id).then(product => {
-            setProductos(product);
+        setCargando(true);
+        getDoc(doc(db, 'productos', id)).then((querySnapshot) => {
+            const productos = { id: querySnapshot.id, ...querySnapshot.data() }
+            setProductos(productos);
+        }).catch((error) => {
+            console.log('Error al buscar los productos',error);
+        }).finally(() => {
             setCargando(false);
-        });
-        return(() => {
-            setProductos([]);
         });
     }, [id]);
 

@@ -1,12 +1,13 @@
 import './styles.scss';
+
 import ItemList from '../itemList/itemList';
 import { useEffect, useState } from 'react';
-import { getItemByCategory } from '../../products';
-import { getProducts } from '../../products';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebase';
 
 const ItemListContainer = () => {
 
@@ -16,20 +17,34 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     useEffect(() => {
-
-        setCargando(true);
-
-        ( async () => {
-            if(categoryId !== undefined){
-                const categoria = await getItemByCategory(categoryId);
-                setProductos(categoria);
+        if(!categoryId) {
+            setCargando(true);
+            getDocs(collection(db, 'productos')).then((querySnapshot) => {
+                const productos = querySnapshot.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                });
+                setProductos(productos);
+            }).catch((error) => {
+                console.log('Error buscando los items', error);
+            }).finally(() => {
                 setCargando(false);
-            } else {
-                const categoria = await getProducts();
-                setProductos(categoria);
+            });
+        } else {
+            setCargando(true);
+            getDocs(query(collection(db, 'productos'), where('categoria', '==', categoryId))).then((querySnapshot) => {
+                const productos = querySnapshot.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                });
+                setProductos(productos);
+            }).catch((error) => {
+                console.log('Error al buscar los productos', error);
+            }).finally(() => {
                 setCargando(false);
-            }
-        })();
+            });
+        }
+        return(() => {
+            setProductos([]);
+        });
     }, [categoryId]);
 
     return (
