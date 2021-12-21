@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-    const { id } = useParams();
+    const { pid } = useParams();
 
     useEffect(() => {
         setCargando(true);
