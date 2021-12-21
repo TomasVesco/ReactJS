@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setCargando(true);
-        getDoc(doc(db, 'productos', id)).then((querySnapshot) => {
+        getDoc(doc(db, 'productos', pid)).then((querySnapshot) => {
             const productos = { id: querySnapshot.id, ...querySnapshot.data() }
             setProductos(productos);
         }).catch((error) => {
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
         }).finally(() => {
             setCargando(false);
         });
-    }, [id]);
+    }, [pid]);
 
     return(
         <div className="itemDetailContainer">
