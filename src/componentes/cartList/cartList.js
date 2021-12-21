@@ -17,7 +17,7 @@ const CartList = ({ productos }) => {
                         <img src={imagen} alt=""/>
                     </div>
                 </div>
-                <div>
+                <div className='cardCartNombre'>
                     <div>
                         <p>{nombre}</p>
                     </div>
@@ -29,7 +29,7 @@ const CartList = ({ productos }) => {
                     <p>Cantidad: {count}</p>
                 </div>
                 <div>
-                    <p>Precio: {precio}</p>
+                    <p>Precio unitario: ${precio}</p>
                 </div>
             </div>
         </div>
