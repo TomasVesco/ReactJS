@@ -6,11 +6,11 @@ export const CartContextProvider = ({children}) => {
 
     const [ item, setItem ] = useState([]);
 
-    const setProductoAgregado = ( itemToAdd ) => {
+    const setProductoAgregado = ( itemToAdd, count ) => {
         if(item.some(items => items.id === itemToAdd.id)){
             const index = item.findIndex(elemento => elemento.id === itemToAdd.id);
             const temItem = [...item];
-            temItem[index].count += 1;
+            temItem[index].count += count;
             setItem(temItem);
         }else{
             setItem((state) => [...state, itemToAdd]);
