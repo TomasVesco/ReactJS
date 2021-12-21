@@ -12,11 +12,11 @@ const ItemDetailContainer = () => {
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-    const { pid } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         setCargando(true);
-        getDoc(doc(db, 'productos', pid)).then((querySnapshot) => {
+        getDoc(doc(db, 'productos', id)).then((querySnapshot) => {
             const productos = { id: querySnapshot.id, ...querySnapshot.data() }
             setProductos(productos);
         }).catch((error) => {
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
         }).finally(() => {
             setCargando(false);
         });
-    }, [pid]);
+    }, [id]);
 
     return(
         <div className="itemDetailContainer">
