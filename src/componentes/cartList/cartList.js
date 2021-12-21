@@ -25,10 +25,10 @@ const CartList = ({ productos }) => {
                         <button onClick={() => eliminarProd(nombre)}>Eliminar</button>
                     </div>
                 </div>
-                <div>
+                <div className='cardCartCantidad'>
                     <p>Cantidad: {count}</p>
                 </div>
-                <div>
+                <div className='cardCartPrecio'>
                     <p>Precio unitario: ${precio}</p>
                 </div>
             </div>
