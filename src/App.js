@@ -21,7 +21,7 @@ function App() {
               <Routes>
                 <Route path='/ReactJS' element={<ItemListContainer />}/>
                 <Route path='/category/:categoryId' element={<ItemListContainer />}/>
-                <Route path='/item/:id' element={<ItemDetailContainer />}/>
+                <Route path='/item/:paramId' element={<ItemDetailContainer />}/>
                 <Route path='/Login' element={<Login />}/>
                 <Route path='/Cart' element={<Cart />}/>
               </Routes>
