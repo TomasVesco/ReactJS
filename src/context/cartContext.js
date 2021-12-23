@@ -33,6 +33,10 @@ export const CartContextProvider = ({children}) => {
         return precio;
     }
 
+    const clearCart = () => {
+        setItem([]);
+    }
+
     const eliminarProd = ( nombre ) => {
         const index = item.findIndex(elemento => elemento.nombre === nombre);
         const temItem = [...item];
@@ -48,7 +52,8 @@ export const CartContextProvider = ({children}) => {
             setProductoAgregado,
             totalCount,
             totalPrice,
-            eliminarProd
+            eliminarProd,
+            clearCart
         }}>
             {children}
         </Context.Provider>

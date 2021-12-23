@@ -21,7 +21,9 @@ const ItemCount = ({stock, initial, onConfirm}) => {
     }
 
     const actualizarComponente = () => {
-        setHayItem(false);
+        if(count !== 0){
+            setHayItem(false);
+        }
     }
 
     return (

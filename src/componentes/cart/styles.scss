@@ -5,6 +5,26 @@
     >div:nth-child(1){
         width: 90%;
         justify-content: center;
+        .cartFormContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            >div:nth-child(1){
+                padding-bottom: 10px;
+            }
+            >form{
+                width: 600px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .cartPaymentContainer{
+            display: flex;
+            justify-content: flex-end;
+            >div:nth-child(1){
+                width: 200px;
+            }
+        }
     }
 }
 
