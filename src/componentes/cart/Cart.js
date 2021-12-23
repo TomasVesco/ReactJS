@@ -44,6 +44,7 @@ const Cart = () => {
                     });
                 } else {
                     outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data() });
+                    console.log(outOfStock);
                 }
             });
         });
@@ -54,8 +55,6 @@ const Cart = () => {
                     console.log(id); //Pasarle el ID de la compra al usuario-
                 });
             });
-        } else {
-            console.log('No hay items suficientes');
         }
 
         setTimeout(() => {
@@ -79,7 +78,7 @@ const Cart = () => {
             <div className='cartContainer'>
                 <div>
                     <div>
-                        {item.map((productos) => <CartList key={`${item.id}`} productos={productos} />)}
+                        {item.map((productos, index) => <CartList key={`${item.id}${index}`} productos={productos} />)}
                     </div>
                     <div className='cartFormContainer'>
                         <div>
