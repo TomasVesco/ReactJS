@@ -42,7 +42,6 @@ const Cart = () => {
                     });
                 } else {
                     outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data() });
-                    console.log(outOfStock);
                 }
             });
         });
