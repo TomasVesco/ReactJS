@@ -40,6 +40,17 @@ To start developing:
 
 6) Once the previous steps are done, type 'npm star' to make the application deployment.
 
+## Dependencies used
+
+### SASS
+
+For the CSS I used SASS, you can find documentation at: https://sass-lang.com/documentation.
+The steps to add Sass to Create React App are:
+
+ 1) Install node-sass: 'npm install node-sass'.  
+ 2) Convert your .css files to .scss.  
+ 3) Import your .scss files in your React components like App.js.  
+
 ## Available Scripts
 
 In the project directory, you can run:
