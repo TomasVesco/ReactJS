@@ -53,7 +53,7 @@ The steps to add Sass to the app are:
 
  ### React router dom
 
-To navigate in the application use React-router-dom, you can find documentation at: https://reactrouter.com/docs/en/v6/getting-started/overview.
+To navigate in the application use React-router-dom, you can find documentation at:  https://reactrouter.com/docs/en/v6/getting-started/overview.
 
 React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.
 
