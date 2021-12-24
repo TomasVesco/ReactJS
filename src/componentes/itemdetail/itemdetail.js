@@ -1,33 +1,34 @@
-import ItemD from "../itemD/itemD";
-import ItemCount from '../itemcount/ItemCount';
 import './styles.scss';
 
-import { useContext } from "react";
+import ItemD from "../itemD/itemD";
+import ItemCount from '../itemcount/ItemCount';
 import CartContext from '../../context/cartContext';
 
-const ItemDetail = ({ productos }) => {
+import { useContext } from "react";
+
+const ItemDetail = ({ products }) => {
     
-    const { setProductoAgregado } = useContext(CartContext);
+    const { setProductAdd } = useContext(CartContext);
 
     const onAdd = (count) => {
         if(count !== 0){
-            const { imagen, nombre, precio, id} = productos;
+            const { image, name, price, id } = products;
 
             const item = {
-                imagen,
-                nombre,
-                precio,
+                image,
+                name,
+                price,
                 id,
                 count
             }
-            setProductoAgregado( item, count );
+            setProductAdd( item, count );
         }
     }
 
     return(
         <div className="cardContainer">
-            <ItemD key={productos.id} productos={productos}/>
-            <ItemCount stock={productos.stock} initial={1} onConfirm={onAdd}/>
+            <ItemD key={products.id} products={products}/>
+            <ItemCount stock={products.stock} onConfirm={onAdd}/>
         </div>
     );
 }

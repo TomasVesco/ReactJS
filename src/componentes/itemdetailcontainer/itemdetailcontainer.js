@@ -1,34 +1,37 @@
 import './styles.scss';
+
 import ItemDetail from "../itemdetail/itemdetail";
-import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
+
+import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../services/firebase/firebase';
 
 const ItemDetailContainer = () => {
 
-    const [productos, setProductos] = useState([]);
-    const [cargando, setCargando] = useState(true);
+    const [ products, setProducts ] = useState([]);
+    const [ loading, setloading ] = useState(true);
 
     const { paramId } = useParams();
 
     useEffect(() => {
-        setCargando(true);
-        getDoc(doc(db, 'productos', paramId)).then((querySnapshot) => {
-            const productos = { id: querySnapshot.id, ...querySnapshot.data() }
-            setProductos(productos);
+        setloading(true);
+        getDoc(doc(db, 'products', paramId)).then((querySnapshot) => {
+            const products = { id: querySnapshot.id, ...querySnapshot.data() }
+            setProducts(products);
         }).catch((error) => {
             console.log('Error al buscar los productos',error);
         }).finally(() => {
-            setCargando(false);
+            setloading(false);
         });
     }, [paramId]);
 
     return(
         <div className="itemDetailContainer">
-            {cargando ? <div className='preloader'><div><FontAwesomeIcon icon={faPaw}/></div></div>:<ItemDetail productos={productos}/>}
+            {loading ? <div className='preloader'><div><FontAwesomeIcon icon={faPaw}/></div></div>:<ItemDetail products={products}/>}
         </div>
     );
 }

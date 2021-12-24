@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 const Context = React.createContext([]);
 
-export const CartContextProvider = ({children}) => {
+export const CartContextProvider = ({ children }) => {
 
     const [ item, setItem ] = useState([]);
 
-    const setProductoAgregado = ( itemToAdd, count ) => {
+    const setProductAdd = ( itemToAdd, count ) => {
         if(item.some(items => items.id === itemToAdd.id)){
-            const index = item.findIndex(elemento => elemento.id === itemToAdd.id);
+            const index = item.findIndex(element => element.id === itemToAdd.id);
             const temItem = [...item];
             temItem[index].count += count;
             setItem(temItem);
@@ -26,19 +26,19 @@ export const CartContextProvider = ({children}) => {
     }
 
     const totalPrice = () => {
-        let precio = 0;
+        let price = 0;
         item.forEach(prod => {
-            precio += prod.precio * prod.count;
+            price += prod.price * prod.count;
         });
-        return precio;
+        return price;
     }
 
     const clearCart = () => {
         setItem([]);
     }
 
-    const eliminarProd = ( nombre ) => {
-        const index = item.findIndex(elemento => elemento.nombre === nombre);
+    const deleteProd = ( name ) => {
+        const index = item.findIndex(element => element.nombre === name);
         const temItem = [...item];
         temItem.splice(index, 1);
         setItem(temItem);
@@ -46,13 +46,13 @@ export const CartContextProvider = ({children}) => {
 
     return(
         <Context.Provider value={{
-            productoAdd: {
+            productAdd: {
                 item,
             },
-            setProductoAgregado,
+            setProductAdd,
             totalCount,
             totalPrice,
-            eliminarProd,
+            deleteProd,
             clearCart
         }}>
             {children}

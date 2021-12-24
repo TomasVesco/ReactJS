@@ -1,13 +1,14 @@
 import './styles.scss';
 
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-const ItemCount = ({stock, initial, onConfirm}) => {
+const ItemCount = ({ stock, onConfirm }) => {
 
-    let [count, setCount] = useState(initial);
-    const [hayItem, setHayItem ] = useState(true);
-
+    let [ count, setCount ] = useState(0);
+    const [ thereIsItem, setThereIsItem ] = useState(true);
+    
     const addToCart = () => {
         if(count < stock){
             setCount(count += 1);
@@ -20,15 +21,15 @@ const ItemCount = ({stock, initial, onConfirm}) => {
         }
     }
 
-    const actualizarComponente = () => {
+    const updateComponent = () => {
         if(count !== 0){
-            setHayItem(false);
+            setThereIsItem(false);
         }
     }
 
     return (
         <>
-        {!hayItem ?                     
+        {!thereIsItem ?                     
             <div>
                 <Link to='/Cart' className='finCompra'>Terminar la compra</Link>
             </div>
@@ -49,7 +50,7 @@ const ItemCount = ({stock, initial, onConfirm}) => {
                     <div>                    
                         <button onClick={(() => {
                             onConfirm(count);
-                            actualizarComponente();
+                            updateComponent();
                         })}>Agregar al carrito</button>
                     </div>
                 </div>

@@ -1,27 +1,25 @@
 import './styles.scss';
 
 import CartList from '../cartList/cartList';
-import { useContext, useEffect, useState, useRef } from "react";
 import CartContext from '../../context/cartContext';
+
+import { useContext, useEffect, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
 import { db } from '../../services/firebase/firebase';
 import { collection, addDoc, doc, writeBatch, getDoc } from 'firebase/firestore';
 
 const Cart = () => {
 
-    const { productoAdd, totalPrice, clearCart } = useContext(CartContext);
-    const { item } = productoAdd;
+    const { productAdd, totalPrice, clearCart } = useContext(CartContext);
+    const { item } = productAdd;
 
-    const [ hayItems, setHayItems ] = useState(false);
-
-    const [ processingOrder, setProcessingOrder ] = useState(false);
+    const [ thereAreItems, setThereAreItems ] = useState(false);
 
     const formName = useRef('');
     const formPhone = useRef('');
     const formEmail = useRef('');
 
     const confirmOrder = () => {
-        setProcessingOrder(true);
 
         const objOrder = {
             buyer: {
@@ -37,9 +35,9 @@ const Cart = () => {
         const outOfStock = [];
 
         objOrder.items.forEach((prod) => {
-            getDoc(doc(db, 'productos', prod.id)).then((documentSnapshot) => {
+            getDoc(doc(db, 'products', prod.id)).then((documentSnapshot) => {
                 if(documentSnapshot.data().stock >= prod.count) {
-                    batch.update(doc(db, 'productos', documentSnapshot.id), {
+                    batch.update(doc(db, 'products', documentSnapshot.id), {
                         stock: documentSnapshot.data().stock - prod.count
                     });
                 } else {
@@ -59,26 +57,25 @@ const Cart = () => {
 
         setTimeout(() => {
             clearCart();
-            setProcessingOrder(false);
         }, 1000);
     }
 
     useEffect(() => {
-        setHayItems(false);
+        setThereAreItems(false);
         if(item.length === 0){
-            setHayItems(false);
+            setThereAreItems(false);
         } else {
-            setHayItems(true);
+            setThereAreItems(true);
         }
     }, [item]);
 
     return(
         <>
-            {hayItems ? 
+            {thereAreItems ? 
             <div className='cartContainer'>
                 <div>
                     <div>
-                        {item.map((productos, index) => <CartList key={`${item.id}${index}`} productos={productos} />)}
+                        {item.map((products, index) => <CartList key={`${item.id}${index}`} products={products} />)}
                     </div>
                     <div className='cartFormContainer'>
                         <div>

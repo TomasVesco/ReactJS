@@ -1,9 +1,9 @@
 import ItemL from "../itemL/itemL";
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ products }) => {
     return (
         <>
-            {productos.map(productos => <ItemL key={productos.id} productos={productos} />)}
+            {products.map(products => <ItemL key={products.id} products={products} />)}
         </>
     );
 }

@@ -1,55 +1,57 @@
 import './styles.scss';
 
 import ItemList from '../itemList/itemList';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
+
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../services/firebase/firebase';
 
 const ItemListContainer = () => {
 
-    const [productos, setProductos] = useState([]); 
-    const [cargando, setCargando] = useState(true);
+    const [ products, setProducts ] = useState([]); 
+    const [ loading, setLoading ] = useState(true);
 
     const { categoryId } = useParams();
 
     useEffect(() => {
         if(!categoryId) {
-            setCargando(true);
-            getDocs(collection(db, 'productos')).then((querySnapshot) => {
-                const productos = querySnapshot.docs.map(doc => {
+            setLoading(true);
+            getDocs(collection(db, 'products')).then((querySnapshot) => {
+                const products = querySnapshot.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 });
-                setProductos(productos);
+                setProducts(products);
             }).catch((error) => {
                 console.log('Error buscando los items', error);
             }).finally(() => {
-                setCargando(false);
+                setLoading(false);
             });
         } else {
-            setCargando(true);
-            getDocs(query(collection(db, 'productos'), where('categoria', '==', categoryId))).then((querySnapshot) => {
-                const productos = querySnapshot.docs.map(doc => {
+            setLoading(true);
+            getDocs(query(collection(db, 'products'), where('category', '==', categoryId))).then((querySnapshot) => {
+                const products = querySnapshot.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 });
-                setProductos(productos);
+                setLoading(products);
             }).catch((error) => {
                 console.log('Error al buscar los productos', error);
             }).finally(() => {
-                setCargando(false);
+                setLoading(false);
             });
         }
         return(() => {
-            setProductos([]);
+            setProducts([]);
         });
     }, [categoryId]);
 
     return (
         <>
-            {cargando ? <div className='preloaderL'><div><FontAwesomeIcon icon={faPaw}/></div></div>:
+            {loading ? <div className='preloaderL'><div><FontAwesomeIcon icon={faPaw}/></div></div>:
             <div className="itemListContainer">
                 <div>
                     <div>
@@ -58,7 +60,7 @@ const ItemListContainer = () => {
                         <Link to={'/category/herramienta'}>Herramienta</Link>
                     </div>
                 </div>
-                <ItemList productos={productos} />
+                <ItemList products={products} />
             </div>}
         </>
     );

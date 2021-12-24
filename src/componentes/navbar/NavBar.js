@@ -1,9 +1,10 @@
 import './styles.scss';
 
+import CartWidget from '../cartwidget/cartWidget';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
-import CartWidget from '../cartwidget/cartWidget';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {

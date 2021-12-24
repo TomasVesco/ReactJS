@@ -1,35 +1,35 @@
 import './styles.scss';
 
 import { useContext } from 'react';
-import CartContext from '../../context/cartContext';
+import CartContext from '../../context/cartContext'; 
 
-const CartList = ({ productos }) => {
+const CartList = ({ products }) => {
     
-    const { imagen, nombre, precio, count } = productos;
+    const { image, name, price, count } = products;
 
-    const { eliminarProd } = useContext(CartContext);
+    const { deleteProd } = useContext(CartContext);
 
     return(
         <div className='cardCart'>
             <div>
                 <div className='cardCartImg'>
                     <div>
-                        <img src={imagen} alt=""/>
+                        <img src={image} alt=""/>
                     </div>
                 </div>
                 <div className='cardCartNombre'>
                     <div>
-                        <p>{nombre}</p>
+                        <p>{name}</p>
                     </div>
                     <div>
-                        <button onClick={() => eliminarProd(nombre)}>Eliminar</button>
+                        <button onClick={() => deleteProd(name)}>Eliminar</button>
                     </div>
                 </div>
                 <div className='cardCartCantidad'>
                     <p>Cantidad: {count}</p>
                 </div>
                 <div className='cardCartPrecio'>
-                    <p>Precio unitario: ${precio}</p>
+                    <p>Precio unitario: ${price}</p>
                 </div>
             </div>
         </div>

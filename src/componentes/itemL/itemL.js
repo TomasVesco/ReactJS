@@ -1,44 +1,44 @@
 import './styles.scss';
 
 import ItemCount from '../itemcount/ItemCount';
-import { Link } from 'react-router-dom';
-
-import { useContext } from "react";
 import CartContext from '../../context/cartContext';
 
-const ItemL = ({ productos }) => {
+import { Link } from 'react-router-dom';
+import { useContext } from "react";
 
-    const { setProductoAgregado } = useContext(CartContext);
+const ItemL = ({ products }) => {
+
+    const { setProductAdd } = useContext(CartContext);
 
     const onAdd = (count) => {
         if(count !== 0){
-            const { imagen, nombre, precio, id} = productos;
+            const { image, name, price, id } = products;
 
             const item = {
-                imagen,
-                nombre,
-                precio,
+                image,
+                name,
+                price,
                 id,
                 count
             }
-            setProductoAgregado( item, count );
+            setProductAdd( item, count );
         }
     }
 
     return (                                         
         <div className="cardL">
             <div>
-                <Link to={`/item/${productos.id}`}><img src={productos.imagen} alt=""/></Link>
+                <Link to={`/item/${products.id}`}><img src={products.image} alt=""/></Link>
             </div>
             <div>
-                <p>{productos.nombre}</p>
+                <p>{products.name}</p>
             </div>
             <div>
-                <p>Precio: ${productos.precio}</p>
+                <p>Precio: ${products.price}</p>
             </div>
             <div>
-                <Link to={`/item/${productos.id}`}>Detalle</Link>
-                <ItemCount stock={productos.stock} initial={1} onConfirm={onAdd}/>
+                <Link to={`/item/${products.id}`}>Detalle</Link>
+                <ItemCount stock={products.stock} onConfirm={onAdd}/>
             </div>
         </div>
     );
