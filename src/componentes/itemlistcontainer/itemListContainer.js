@@ -28,8 +28,6 @@ const ItemListContainer = () => {
                     return { id: doc.id, ...doc.data() }
                 });
                 setProducts(products);
-            }).catch((error) => {
-                console.log('Error buscando los items', error);
             }).finally(() => {
                 setLoading(false);
             });
@@ -42,8 +40,6 @@ const ItemListContainer = () => {
                     return { id: doc.id, ...doc.data() }
                 });
                 setLoading(products);
-            }).catch((error) => {
-                console.log('Error al buscar los productos', error);
             }).finally(() => {
                 setLoading(false);
             });

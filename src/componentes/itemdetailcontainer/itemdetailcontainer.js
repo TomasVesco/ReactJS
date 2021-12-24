@@ -22,8 +22,6 @@ const ItemDetailContainer = () => {
         getDoc(doc(db, 'products', paramId)).then((querySnapshot) => {
             const products = { id: querySnapshot.id, ...querySnapshot.data() }
             setProducts(products);
-        }).catch((error) => {
-            console.log('Error al buscar los productos',error);
         }).finally(() => {
             setloading(false);
         });
