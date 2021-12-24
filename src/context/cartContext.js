@@ -18,7 +18,9 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const totalCount = () => {
+
         let count = 0;
+
         item.forEach(prod => {
             count += prod.count;
         });
@@ -26,7 +28,9 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const totalPrice = () => {
+
         let price = 0;
+
         item.forEach(prod => {
             price += prod.price * prod.count;
         });
