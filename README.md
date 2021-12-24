@@ -21,6 +21,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To start developing:
+
+1) Write in the console git clone https://github.com/TomasVesco/ReactJS.git.
+2) Find the folder where the repository has been cloned.
+3) Once opened, you must install the dependencies used in the project with the 'npm install' command.
+4) You must create a database, I recommend using firebase with the following instructions:
+  - Create a collection with the name 'products'.
+  - Set the ID to be generated automatically.
+  - The fields will be: (category [string] | description [string] | image [string] | name [string] | price [number] | stock [number])
+5) Then create a .env file with the credentials obtained from firebase as follows:
+  REACT_APP_apiKey = 'HERE GOES apiKey'
+  REACT_APP_authDomain = 'HERE GOES authDoimain'
+  REACT_APP_projectId = 'HERE GOES projectId'
+  REACT_APP_storageBucket = 'HERE GOES storageBucket'
+  REACT_APP_messagingSenderId = 'HERE GOES messaginSenderId'
+  REACT_APP_appId = 'HERE GOES appId'
+
 ## Available Scripts
 
 In the project directory, you can run:
