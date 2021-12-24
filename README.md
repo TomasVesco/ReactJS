@@ -38,6 +38,8 @@ To start developing:
   REACT_APP_messagingSenderId = 'HERE GOES messaginSenderId'  
   REACT_APP_appId = 'HERE GOES appId'  
 
+6) Once the previous steps are done, type 'npm star' to make the application deployment.
+
 ## Available Scripts
 
 In the project directory, you can run:
