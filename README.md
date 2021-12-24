@@ -30,7 +30,7 @@ To start developing:
   - Create a collection with the name 'products'.
   - Set the ID to be generated automatically.
   - The fields will be: (category [string] | description [string] | image [string] | name [string] | price [number] | stock [number])
-5) Then create a .env file with the credentials obtained from firebase as follows:
+5) Then create a .env file with the credentials obtained from firebase as follows:  
   REACT_APP_apiKey = 'HERE GOES apiKey'  
   REACT_APP_authDomain = 'HERE GOES authDoimain'  
   REACT_APP_projectId = 'HERE GOES projectId'  
