@@ -31,12 +31,12 @@ To start developing:
   - Set the ID to be generated automatically.
   - The fields will be: (category [string] | description [string] | image [string] | name [string] | price [number] | stock [number])
 5) Then create a .env file with the credentials obtained from firebase as follows:
-  REACT_APP_apiKey = 'HERE GOES apiKey'
-  REACT_APP_authDomain = 'HERE GOES authDoimain'
-  REACT_APP_projectId = 'HERE GOES projectId'
-  REACT_APP_storageBucket = 'HERE GOES storageBucket'
-  REACT_APP_messagingSenderId = 'HERE GOES messaginSenderId'
-  REACT_APP_appId = 'HERE GOES appId'
+  REACT_APP_apiKey = 'HERE GOES apiKey'  
+  REACT_APP_authDomain = 'HERE GOES authDoimain'  
+  REACT_APP_projectId = 'HERE GOES projectId'  
+  REACT_APP_storageBucket = 'HERE GOES storageBucket'  
+  REACT_APP_messagingSenderId = 'HERE GOES messaginSenderId'  
+  REACT_APP_appId = 'HERE GOES appId'  
 
 ## Available Scripts
 
