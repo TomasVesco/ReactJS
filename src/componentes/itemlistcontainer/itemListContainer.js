@@ -39,7 +39,7 @@ const ItemListContainer = () => {
                 const products = querySnapshot.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 });
-                setLoading(products);
+                setProducts(products);
             }).finally(() => {
                 setLoading(false);
             });
